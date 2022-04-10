@@ -141,6 +141,9 @@ def bot():
                 likes_me = Mark.select().where(Mark.user == user, Mark.is_like == True).count()
                 dislikes_me = Mark.select().where(Mark.user == user, Mark.is_like == False).count()
 
+                likes_all = Mark.select().where(Mark.is_like == True).count()
+                dislikes_all = Mark.select().where(Mark.is_like == False).count()
+
                 memes = [i for i in Meme.select().order_by(Meme.rating)][::-1][:9]
 
                 top_photos = []
@@ -149,7 +152,9 @@ def bot():
                     r = upload.photo_messages(get_meme_path(meme.filename), user_id)[0]
                     top_photos.append(f'photo{r["owner_id"]}_{r["id"]}')
 
-                send_message(user_id, f"Статистика:\n\nЛайков поставлено: {likes_me}\nДизлайков поставлено: {dislikes_me}",
+                send_message(user_id, f"Статистика:\n\nВы поставили лайков: {likes_me}\nВы поставили дизлайков: "
+                                      f"{dislikes_me}\n\nВсе пользователи поставили лайков: {likes_all}"
+                                      f"\nВсе пользователи поставили дизлайков: {dislikes_all}\n\nТоп 9 фоток:",
                              attachment=','.join(top_photos))
             elif 'загрузить свой мем' == body:
                 send_message(user_id, 'Отправь мем!\n\nЕсли будет отправлено в одном сообщении несколько мемов, '

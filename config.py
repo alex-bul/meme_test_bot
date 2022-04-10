@@ -1,4 +1,4 @@
-token = "d33fd91ca98af6c134ddef1ad985b1bdc30a894167a2cf31b8c16e100a062758f5fb4f0c6779867ad3af1"
+token = "85d56c1773df326d68a47fe72741aec7af4d546dfa72ce2c6e536c0da27e371222ef13415551e9fe052d9"
 memes_folder = './memes'
 database_file = 'users.db'
 
