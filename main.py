@@ -173,5 +173,5 @@ def bot():
 while True:
     try:
         bot()
-    except:
-        pass
+    except Exception as ex:
+        print('ERROR', ex)
