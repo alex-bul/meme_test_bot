@@ -169,4 +169,9 @@ def bot():
                 send_message(user_id, "Пользуйся командами на клавиатуре!", keyboard_main)
 
 
-bot()
+# Перезапуск в случае ошибки
+while True:
+    try:
+        bot()
+    except:
+        pass
