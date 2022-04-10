@@ -10,6 +10,6 @@
 ------
 Установка
 ----
-> pip install requitements.txt
+> pip install -r requirements.txt
 
 > python main.py
